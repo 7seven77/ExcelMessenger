@@ -1,7 +1,13 @@
-Sub getFromWebsite()
+Sub sendMessage()
     Dim url As String
+    Dim name, message As String
     
-    url = "http://www.7seven77.infinityfreeapp.com/"
+    url = "http://7seven77.000webhostapp.com/send.php"
+
+    name = Range("B3").Value
+    message = Range("E7").Value
+    
+    url = url + "?name=" + name + "&message=" + message
     
     result = request(url)
     
