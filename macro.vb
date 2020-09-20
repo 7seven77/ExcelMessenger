@@ -1,15 +1,24 @@
-Sub request()
-    Dim request As Object
+Sub getFromWebsite()
     Dim url As String
     
-    url = "http://www.7seven77.000webhostapp.cmo/excelim.php"
+    url = "http://www.7seven77.infinityfreeapp.com/"
     
-    Set request = CreateObject("MSXML2.XMLHTTP")
-    With request
+    result = request(url)
+    
+    Debug.Print result
+End Sub
+
+Function request(url As String) As String
+    Debug.Print "Making Request"
+    Dim httprequest As Object
+    
+    Set httprequest = CreateObject("MSXML2.XMLHTTP")
+    With httprequest
         .Open "GET", url, False
         .send
     End With
     
-    Debug.Print request.responseText
-End Sub
+    request = httprequest.responseText
+End Function
+
 
