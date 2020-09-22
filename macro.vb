@@ -4,6 +4,8 @@ Sub showMessages()
     source = getMessages()
     
     messages = Split(source, ",,")
+    
+    If message = Empty Then Exit Sub
     ReDim Preserve messages(UBound(messages) - 1)
     
     For Each message In messages

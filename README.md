@@ -3,9 +3,10 @@
 In the music video for the song [Dilemma by Nelly (Feat. Kelly Rowland)](https://www.youtube.com/watch?v=8WYHDfJDPDc), Kelly Rowland can be seen sending a message using Excel.
 I saw people ridiculing this and claiming this was stupid because it cannot be done.
 
-I am planning to create some subroutines in vba as well as some pages for a website which allow Excel to be used as an "instant messaging" application
+Requires Excel to be refreshed when messages are loaded after sending a message sometimes.
+(Hopefully I'll get round to fixing this)
 
-## Usage
+## Setting up
 
 - Create a website using the pages inside the `website` directory
   - Use the sql file to create the needed databases
@@ -22,4 +23,3 @@ These steps should work. If they don't, let me know and I will update them. :)
 
 - Microsoft XML, v6.0
 - Microsoft HTML Object Library
-- Microsoft Scripting Runtime
