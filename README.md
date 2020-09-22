@@ -3,8 +3,7 @@
 In the music video for the song [Dilemma by Nelly (Feat. Kelly Rowland)](https://www.youtube.com/watch?v=8WYHDfJDPDc), Kelly Rowland can be seen sending a message using Excel.
 I saw people ridiculing this and claiming this was stupid because it cannot be done.
 
-Requires Excel to be refreshed when messages are loaded after sending a message sometimes.
-(Hopefully I'll get round to fixing this)
+Using this repo, you can create an Excel spreadsheet that allows you to send and receive messages
 
 ## Setting up
 
