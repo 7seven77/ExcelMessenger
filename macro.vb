@@ -1,3 +1,32 @@
+Sub showMessages()
+
+End Sub
+
+Function getMessages() As String
+'   Change these values to change where the
+'   Information is taken from
+
+    Dim nameCell, recipientCell As String
+    nameCell = "B3"
+    recipientCell = "B5"
+    
+    Dim url As String
+    Dim name As String
+    
+    url = "http://7seven77.000webhostapp.com/receive.php"
+    
+'   Obtain the cell values
+    name = Range(nameCell).Value
+    recipient = Range(recipientCell).Value
+    
+'   Create the full url
+    url = url + "?sender=" + name + "&recipient=" + recipient
+    Debug.Print url
+    
+'   Make the request to send a message
+    getMessages = request(url)
+End Function
+
 Sub sendMessage()
 '   Change these values to change where the
 '   Information is taken from
@@ -20,7 +49,6 @@ Sub sendMessage()
 '   Create the full url
     url = url + "?sender=" + name + "&recipient=" + recipient + "&message=" + message
     Debug.Print url
-
 '   Make the request to send a message
     result = request(url)
     Debug.Print result
