@@ -22,3 +22,4 @@ These steps should work. If they don't, let me know and I will update them. :)
 
 - Microsoft XML, v6.0
 - Microsoft HTML Object Library
+- Microsoft Scripting Runtime

@@ -1,5 +1,27 @@
 Sub showMessages()
-
+    Dim source As String
+    Dim messages() As String
+    source = getMessages()
+    
+    messages = Split(source, ",,")
+    ReDim Preserve messages(UBound(messages) - 1)
+    
+    For Each message In messages
+        Debug.Print message
+    Next
+    
+    Dim letter As String
+    Dim number As Integer
+    Dim messageContents() As String
+    
+    letter = "E"
+    number = 13
+    For Each message In messages
+        messageContents = Split(message, ",")
+        Range(letter & number).Value = messageContents(2)
+        number = number + 1
+    Next
+    Debug.Print "Messages output"
 End Sub
 
 Function getMessages() As String
