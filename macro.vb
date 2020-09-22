@@ -2,8 +2,9 @@ Sub sendMessage()
 '   Change these values to change where the
 '   Information is taken from
 
-    Dim nameCell, messageCell As String
+    Dim nameCell, messageCell, recipientCell As String
     nameCell = "B3"
+    recipientCell = "B5"
     messageCell = "E7"
     
     Dim url As String
@@ -14,9 +15,11 @@ Sub sendMessage()
 '   Obtain the cell values
     name = Range(nameCell).Value
     message = Range(messageCell).Value
+    recipient = Range(recipientCell).Value
     
 '   Create the full url
-    url = url + "?name=" + name + "&message=" + message
+    url = url + "?sender=" + name + "&recipient=" + recipient + "&message=" + message
+    Debug.Print url
 
 '   Make the request to send a message
     result = request(url)
@@ -38,5 +41,3 @@ Function request(url As String) As String
     
     request = httprequest.responseText
 End Function
-
-
