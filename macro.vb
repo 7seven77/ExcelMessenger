@@ -24,60 +24,45 @@ Sub showMessages()
     Debug.Print "Messages output"
 End Sub
 
-Function getMessages() As String
-'   Change these values to change where the
-'   Information is taken from
-
-    Dim nameCell, recipientCell As String
-    nameCell = "B3"
-    recipientCell = "B5"
-    
-    Dim url As String
-    Dim name As String
-    
-    url = "http://7seven77.000webhostapp.com/receive.php"
-    
-'   Obtain the cell values
-    name = Range(nameCell).Value
-    recipient = Range(recipientCell).Value
-    
-'   Create the full url
-    url = url + "?sender=" + name + "&recipient=" + recipient
-    Debug.Print url
-    
-'   Make the request to send a message
-    getMessages = request(url)
-End Function
-
 Sub sendMessage()
-'   Change these values to change where the
-'   Information is taken from
-
-    Dim nameCell, messageCell, recipientCell As String
-    nameCell = "B3"
-    recipientCell = "B5"
-    messageCell = "E7"
-    
     Dim url As String
-    Dim name, message As String
+    Dim sender, message As String
     
     url = "http://7seven77.000webhostapp.com/send.php"
     
 '   Obtain the cell values
-    name = Range(nameCell).Value
-    message = Range(messageCell).Value
-    recipient = Range(recipientCell).Value
+    sender = getSender()
+    message = getMessage()
+    recipient = getRecipient()
     
 '   Create the full url
-    url = url + "?sender=" + name + "&recipient=" + recipient + "&message=" + message
+    url = url + "?sender=" + sender + "&recipient=" + recipient + "&message=" + message
     Debug.Print url
 '   Make the request to send a message
     result = request(url)
     Debug.Print result
 
 '   Reset the message cell ready for another message
-    Range(messageCell).Value = ""
+    'Range(messageCell).Value = ""
 End Sub
+
+Function getMessages() As String
+    Dim url As String
+    Dim sender As String
+    
+    url = "http://7seven77.000webhostapp.com/receive.php"
+    
+'   Obtain the cell values
+    sender = getSender()
+    recipient = getRecipient()
+    
+'   Create the full url
+    url = url + "?sender=" + sender + "&recipient=" + recipient
+    Debug.Print url
+    
+'   Make the request to send a message
+    getMessages = request(url)
+End Function
 
 Function request(url As String) As String
     Debug.Print "Making Request"
@@ -91,3 +76,20 @@ Function request(url As String) As String
     
     request = httprequest.responseText
 End Function
+
+Function getCell(position As String) As String
+    getCell = Range(position).Value
+End Function
+
+Function getSender() As String
+    getSender = getCell("B3")
+End Function
+
+Function getRecipient() As String
+    getRecipient = getCell("B5")
+End Function
+
+Function getMessage() As String
+    getMessage = getCell("E7")
+End Function
+
