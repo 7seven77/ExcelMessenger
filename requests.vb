@@ -1,3 +1,4 @@
+
 Sub showMessages()
     Dim source As String
     Dim messages() As String
@@ -17,8 +18,8 @@ Sub showMessages()
     Dim number As Integer
     Dim messageContents() As String
     
-    letter = "E"
-    number = 13
+    letter = getMessagesColumn()
+    number = getMessagesStartRow()
     For Each message In messages
         messageContents = Split(message, ",")
         Range(letter & number).Value = messageContents(2)
@@ -78,21 +79,5 @@ Function request(url As String) As String
     End With
     
     request = httprequest.responseText
-End Function
-
-Function getCell(position As String) As String
-    getCell = Range(position).Value
-End Function
-
-Function getSender() As String
-    getSender = getCell("B3")
-End Function
-
-Function getRecipient() As String
-    getRecipient = getCell("B5")
-End Function
-
-Function getMessage() As String
-    getMessage = getCell("E7")
 End Function
 
