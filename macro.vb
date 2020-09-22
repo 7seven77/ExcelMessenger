@@ -1,11 +1,12 @@
 Sub showMessages()
     Dim source As String
     Dim messages() As String
+    
     source = getMessages()
+    If source = "No results" Then Exit Sub
     
     messages = Split(source, ",,")
-    
-    If message = Empty Then Exit Sub
+
     ReDim Preserve messages(UBound(messages) - 1)
     
     For Each message In messages
@@ -59,7 +60,7 @@ Function getMessages() As String
     recipient = getRecipient()
     
 '   Create the full url
-    url = url + "?sender=" + sender + "&recipient=" + recipient
+    url = url + "?sender=" + sender + "&recipient=" + recipient + "&random=" & Rnd()
     Debug.Print url
     
 '   Make the request to send a message
