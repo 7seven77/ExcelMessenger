@@ -1,6 +1,6 @@
 ' Use these functions to make requests
 
-Sub sendMessage()
+Function sendMessageRequest() As String
     Dim url As String
     Dim sender, message As String
     
@@ -15,11 +15,10 @@ Sub sendMessage()
     url = url + "?sender=" + sender + "&recipient=" + recipient + "&message=" + message
     Debug.Print url
 '   Make the request to send a message
-    result = request(url)
-    Debug.Print result
-End Sub
+    sendMessageRequest = request(url)
+End Function
 
-Function getMessages() As String
+Function getMessagesRequest() As String
     Dim url As String
     Dim sender As String
     
@@ -34,7 +33,7 @@ Function getMessages() As String
     Debug.Print url
     
 '   Make the request to send a message
-    getMessages = request(url)
+    getMessagesRequest = request(url)
 End Function
 
 Function request(url As String) As String

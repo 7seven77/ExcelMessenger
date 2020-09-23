@@ -6,7 +6,7 @@ Sub showMessages()
     Dim source As String
     Dim messages() As String
     
-    source = getMessages()
+    source = getMessagesRequest()
     If source = "No results" Then Exit Sub
     
     messages = Split(source, ",,")
@@ -29,4 +29,11 @@ Sub showMessages()
         number = number + 1
     Next
     Debug.Print "Messages output"
+End Sub
+
+Sub sendMessage()
+    Debug.Print "sending message"
+    Dim response As String
+    response = sendMessageRequest()
+    Debug.Print response
 End Sub
