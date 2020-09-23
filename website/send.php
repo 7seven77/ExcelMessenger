@@ -7,11 +7,10 @@
         $date = date('Y-m-d H:i:s');
         
         $connection = ConnectToDatabase();
-        $sql = "INSERT INTO `MESSAGE` (`sender`, `recipient`, `message`, `date`) ";
-        $sql .= "VALUES ('" . $sender . "', '" . $recipient . "', '" . $message . "', '" . $date . "');";
+        $sql = "CALL `addMessage`(\"" . $sender . "\", \"" . $recipient . "\", \"" . $message . "\")";
         
         if (!(mysqli_query($connection, $sql))){
-            echo("Error" . mysqli_error($c));
+            echo("Error" . mysqli_error($connection));
         }
         else {
             echo("Message sent");
