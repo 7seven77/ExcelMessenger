@@ -37,3 +37,20 @@ Sub sendMessage()
     response = sendMessageRequest()
     Debug.Print response
 End Sub
+
+' Remove all messages so that new ones can be displayed
+Sub clearMessages()
+    Dim letter As String
+    Dim start, maximum As Integer
+    
+    letter = getMessagesColumn()
+    start = getMessagesStartRow()
+    
+'   Maximum number of messages
+    maximum = 10
+    
+    For number = start To (start + maximum)
+        Range(letter & number).Value = ""
+    Next number
+
+End Sub
