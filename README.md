@@ -11,10 +11,11 @@ Using this repo, you can create an Excel spreadsheet that allows you to send and
   - Use the sql file to create the needed databases
     - Details about the database will need to be assigned in the `database.sql` file
 - Create an excel spreadsheet with macros enabled
-  - Use the `.vb` file to create the macros needed
-  - Change the url to the one you are using
-  - Change the cell locations from which data is retrieved to match what you need
-  - Assign a 'button' or shortcut to send messages
+  - Use the `.vb` files to create the macros needed
+  - Functions in `data.vb` should be changed so they read from the cells you require
+  - Website URL in `requests.vb` should be changed to lead to yours
+
+`subs.vb` are subroutines that deal with the displaying of information. These will change a lot if you are making your own layout.
 
 These steps should work. If they don't, let me know and I will update them. :)
 
