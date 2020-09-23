@@ -3,6 +3,8 @@
 ' However you need
 
 Sub showMessages()
+    Call clearMessages
+    
     Dim source As String
     Dim messages() As String
     
