@@ -58,13 +58,22 @@ End Function
 
 Function isSenderValid() As Boolean
     isSenderValid = isCellValid(getSenderCell())
+    If Not isSenderValid Then
+        Call updateStatus("Invalid sender ID")
+    End If
 End Function
 
 Function isRecipientValid() As Boolean
     isRecipientValid = isCellValid(getRecipientCell())
+    If Not isRecipientValid Then
+        Call updateStatus("Invalid recipient ID")
+    End If
 End Function
 
 Function isMessageValid() As Boolean
     isMessageValid = isCellValid(getMessageCell())
+    If Not isMessageValid Then
+        Call updateStatus("Invalid message")
+    End If
 End Function
 

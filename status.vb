@@ -40,17 +40,3 @@ Sub wait(seconds As String)
         DoEvents
     Wend
 End Sub
-
-Function allCellsAreValid() As Boolean
-    If Not isSenderValid() Then
-        Call updateStatus("Invalid sender ID")
-        allCellsAreValid = False
-    ElseIf Not isRecipientValid() Then
-        Call updateStatus("Invalid recipient ID")
-        allCellsAreValid = False
-    ElseIf Not isMessageValid() Then
-        Call updateStatus("Invalid message")
-        allCellsAreValid = False
-    End If
-    allCellsAreValid = True
-End Function
