@@ -18,14 +18,22 @@ Sub updateStatus(newValue As String)
     Dim original As String
     original = getStatus()
     
-    Dim WaitTime As Date
-    WaitTime = Now() + TimeValue("00:00:05")
-    While Now() < WaitTime
-        DoEvents
-    Wend
+    Call wait
     
     If getStatus() = original Then
         Call setStatus("")
     End If
     
+End Sub
+
+Sub wait()
+    Dim waitTime As Date
+    waitTime = Now() + TimeValue("00:00:05")
+    While Now() < waitTime
+        DoEvents
+    Wend
+End Sub
+
+Sub test()
+    Call updateStatus("j")
 End Sub
