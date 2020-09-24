@@ -49,7 +49,7 @@ Sub clearMessages()
     start = getMessagesStartRow()
     
 '   Maximum number of messages
-    maximum = 10
+    maximum = getMaximumNumberOfMessages()
     
     For number = start To (start + maximum)
         Range(letter & number).Value = ""

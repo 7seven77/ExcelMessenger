@@ -1,4 +1,9 @@
-' Functions to get needed data from the spreadsheet
+' Functions that return cells / values that are specified by you
+
+' Should match the maximum number of messages being used in your db
+Function getMaximumNumberOfMessages() As Integer
+    getMaximumNumberOfMessages = 10
+End Function
 
 ' Change these functions so they return the cells
 ' Where the data is located
