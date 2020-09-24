@@ -59,5 +59,23 @@ Sub showMessage(message As String, offset As Integer)
     
     letter = getMessagesColumn()
     number = getMessagesStartRow() + offset
-    Range(letter & number).Value = messageContents(2)
+    
+    Dim cell As Range
+    Set cell = Range(letter & number)
+    
+    cell.Value = messageContents(2)
+    
+    Dim sender As String
+    sender = getSender()
+    
+'   If the message was sent by the person viewing
+'   Align the message to the right
+
+    If messageContents(0) = sender Then
+        cell.HorizontalAlignment = xlRight
+        cell
+    Else
+        cell.HorizontalAlignment = xlLeft
+    End If
+    
 End Sub
