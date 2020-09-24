@@ -3,7 +3,7 @@
 ' However you need
 
 Sub showMessages()
-    Call updateStatus("Fetching messages")
+    Call setStatus("Fetching messages")
     Call clearMessages
     
     Dim source As String
@@ -28,10 +28,14 @@ Sub showMessages()
 End Sub
 
 Sub sendMessage()
-    Call updateStatus("sending message")
+    Call setStatus("sending message")
+    
     Dim response As String
     response = sendMessageRequest()
-    Call updateStatus(response)
+    Call setStatus(response)
+    If InStr(1, response, "ERROR") = 0 Then
+        Call showMessages
+    End If
 End Sub
 
 ' Remove all messages so that new ones can be displayed
@@ -46,7 +50,7 @@ Sub clearMessages()
     maximum = getMaximumNumberOfMessages()
     
     For number = start To (start + maximum)
-        Range(letter & number).Value = ""
+        Range(letter & number).value = ""
     Next number
 
 End Sub
@@ -66,7 +70,7 @@ Sub showMessage(message As String, offset As Integer)
     Dim cell As Range
     Set cell = Range(letter & number)
     
-    cell.Value = messageContents(2)
+    cell.value = messageContents(2)
     
     Dim sender As String
     sender = getSender()
@@ -76,10 +80,10 @@ Sub showMessage(message As String, offset As Integer)
 
     If messageContents(0) = sender Then
         cell.HorizontalAlignment = xlRight
-        cell.Value = messageContents(2) & "  <"
+        cell.value = messageContents(2) & "  <"
     Else
         cell.HorizontalAlignment = xlLeft
-        cell.Value = ">  " & messageContents(2)
+        cell.value = ">  " & messageContents(2)
     End If
     
 End Sub
