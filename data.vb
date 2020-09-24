@@ -1,6 +1,6 @@
 ' Should match the maximum number of messages being used in your db
 Function getMaximumNumberOfMessages() As Integer
-    getMaximumNumberOfMessages = 10
+    getMaximumNumberOfMessages = 20
 End Function
 
 ' Functions to get needed data from the spreadsheet
@@ -35,7 +35,7 @@ End Function
 
 ' Get the value from a cell
 Function getCell(position As String) As String
-    getCell = Range(position).Value
+    getCell = Range(position).value
 End Function
 
 Function getSender() As String
@@ -48,5 +48,23 @@ End Function
 
 Function getMessage() As String
     getMessage = getCell(getMessageCell())
+End Function
+
+Function isCellValid(cell As String) As Boolean
+    Dim value As String
+    value = getCell(cell)
+    isCellValid = Len(value) > 0 And InStr(value, ",") = 0
+End Function
+
+Function isSenderValid() As Boolean
+    isSenderValid = isCellValid(getSenderCell())
+End Function
+
+Function isRecipientValid() As Boolean
+    isRecipientValid = isCellValid(getRecipientCell())
+End Function
+
+Function isMessageValid() As Boolean
+    isMessageValid = isCellValid(getMessageCell())
 End Function
 
