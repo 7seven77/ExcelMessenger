@@ -3,6 +3,10 @@
 ' However you need
 
 Sub showMessages()
+    If Not isSenderValid Or Not isRecipientValid Then
+        Exit Sub
+    End If
+    Debug.Print "doing"
     Call setStatus("Fetching messages")
     Call clearMessages
     
@@ -28,6 +32,10 @@ Sub showMessages()
 End Sub
 
 Sub sendMessage()
+    If Not isSenderValid Or Not isRecipientValid Or Not isMessageValid Then
+        Exit Sub
+    End If
+    
     Call setStatus("sending message")
     
     Dim response As String
@@ -87,4 +95,3 @@ Sub showMessage(message As String, offset As Integer)
     End If
     
 End Sub
-
