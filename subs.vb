@@ -13,23 +13,14 @@ Sub showMessages()
     
     messages = Split(source, ",,")
 
+'   Remove blank space at end of list
     ReDim Preserve messages(UBound(messages) - 1)
     
-    For Each message In messages
-        Debug.Print message
+    Dim count As Integer
+    For count = 0 To UBound(messages)
+        Call showMessage(messages(count), count)
     Next
     
-    Dim letter As String
-    Dim number As Integer
-    Dim messageContents() As String
-    
-    letter = getMessagesColumn()
-    number = getMessagesStartRow()
-    For Each message In messages
-        messageContents = Split(message, ",")
-        Range(letter & number).Value = messageContents(2)
-        number = number + 1
-    Next
     Debug.Print "Messages output"
 End Sub
 
@@ -55,4 +46,18 @@ Sub clearMessages()
         Range(letter & number).Value = ""
     Next number
 
+End Sub
+
+' Display a messgae
+' Change this subroutine to alter how and what is displayed to the user
+Sub showMessage(message As String, offset As Integer)
+    Dim messageContents() As String
+    Dim letter As String
+    Dim number As Integer
+    
+    messageContents = Split(message, ",")
+    
+    letter = getMessagesColumn()
+    number = getMessagesStartRow() + offset
+    Range(letter & number).Value = messageContents(2)
 End Sub
