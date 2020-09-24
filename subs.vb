@@ -3,14 +3,17 @@
 ' However you need
 
 Sub showMessages()
+    Call updateStatus("Fetching messages")
     Call clearMessages
     
     Dim source As String
     Dim messages() As String
     
     source = getMessagesRequest()
-    If source = "No results" Then Exit Sub
-    
+    If source = "No results" Then
+        Call updateStatus("No messages")
+        Exit Sub
+    End If
     messages = Split(source, ",,")
 
 '   Remove blank space at end of list
@@ -21,14 +24,14 @@ Sub showMessages()
         Call showMessage(messages(count), count)
     Next
     
-    Debug.Print "Messages output"
+    Call updateStatus("Messages received")
 End Sub
 
 Sub sendMessage()
-    Debug.Print "sending message"
+    Call updateStatus("sending message")
     Dim response As String
     response = sendMessageRequest()
-    Debug.Print response
+    Call updateStatus(response)
 End Sub
 
 ' Remove all messages so that new ones can be displayed
@@ -80,3 +83,4 @@ Sub showMessage(message As String, offset As Integer)
     End If
     
 End Sub
+

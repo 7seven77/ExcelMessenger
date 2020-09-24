@@ -7,6 +7,8 @@ Using this repo, you can create an Excel spreadsheet that allows you to send and
 
 ## Setting up
 
+An excel sheet without macros is provided. This can be used or you can make your own. 
+
 - Create a website using the pages inside the `website` directory
   - Use the sql file to create the needed databases
     - Details about the database will need to be assigned in the `database.sql` file
