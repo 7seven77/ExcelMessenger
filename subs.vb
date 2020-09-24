@@ -73,9 +73,10 @@ Sub showMessage(message As String, offset As Integer)
 
     If messageContents(0) = sender Then
         cell.HorizontalAlignment = xlRight
-        cell
+        cell.Value = messageContents(2) & "  <"
     Else
         cell.HorizontalAlignment = xlLeft
+        cell.Value = ">  " & messageContents(2)
     End If
     
 End Sub
