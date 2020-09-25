@@ -1,6 +1,7 @@
 ' Status cell subroutines and functions
 
 Function getStatusCell() As String
+'   Change this to be the cell where you want the status message to be sent
     getStatusCell = "G3"
 End Function
 

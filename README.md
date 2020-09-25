@@ -13,9 +13,10 @@ An excel sheet without macros is provided. This can be used or you can make your
   - Use the sql file to create the needed databases
     - Details about the database will need to be assigned in the `database.sql` file
 - Create an excel spreadsheet with macros enabled
-  - Use the `.vb` files to create the macros needed
+  - Create a module for each of the `.vb` files
   - Functions in `data.vb` should be changed so they read from the cells you require
   - Website URL in `requests.vb` should be changed to lead to yours
+  - `subs.vb` can be used to change the interface
 
 `subs.vb` are subroutines that deal with the displaying of information. These will change a lot if you are making your own layout.
 

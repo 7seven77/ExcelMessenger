@@ -6,7 +6,8 @@ Sub showMessages()
     If Not isSenderValid Or Not isRecipientValid Then
         Exit Sub
     End If
-    Debug.Print "doing"
+    
+'   Update status and reset message cells ready for overwrite
     Call setStatus("Fetching messages")
     Call clearMessages
     
