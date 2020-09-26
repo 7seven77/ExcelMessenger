@@ -1,5 +1,5 @@
 <?php
-    require("php/database.php");
+    require("database.php");
     if (isset($_GET)){
         $sender = $_GET['sender'];
         $recipient = $_GET['recipient'];

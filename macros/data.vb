@@ -63,6 +63,8 @@ Function isCellValid(cell As String) As Boolean
     isCellValid = Len(value) > 0 And InStr(value, getSeparator()) = 0
 End Function
 
+' Functions below check if each input cell is valid
+' If there is an invalid cell, it changes the status to reflect this
 Function isSenderValid() As Boolean
     isSenderValid = isCellValid(getSenderCell())
     If Not isSenderValid Then

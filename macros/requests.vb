@@ -12,6 +12,7 @@ Function getBaseURL() As String
     getBaseURL = "http://7seven77.000webhostapp.com"
 End Function
 
+' Send a message to the website
 Function sendMessageRequest() As String
     Dim url As String
     Dim sender, message As String
@@ -30,6 +31,7 @@ Function sendMessageRequest() As String
     sendMessageRequest = request(url)
 End Function
 
+' Get messages from the website
 Function getMessagesRequest() As String
     Dim url As String
     Dim sender As String
@@ -50,6 +52,9 @@ Function getMessagesRequest() As String
     getMessagesRequest = request(url)
 End Function
 
+' Make a GET request to the website
+' Takes in the URL that you would like to go
+' Returns the contents of that page
 Function request(url As String) As String
     Debug.Print "Making Request"
     Dim httprequest As Object
