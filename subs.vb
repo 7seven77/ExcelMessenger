@@ -19,7 +19,9 @@ Sub showMessages()
         Call updateStatus("No messages")
         Exit Sub
     End If
-    messages = Split(source, ",,")
+    Dim splitter As String
+    splitter = getSeparator() + getSeparator()
+    messages = Split(source, splitter)
 
 '   Remove blank space at end of list
     ReDim Preserve messages(UBound(messages) - 1)
@@ -71,7 +73,7 @@ Sub showMessage(message As String, offset As Integer)
     Dim letter As String
     Dim number As Integer
     
-    messageContents = Split(message, ",")
+    messageContents = Split(message, getSeparator())
     
     letter = getMessagesColumn()
     number = getMessagesStartRow() + offset

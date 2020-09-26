@@ -1,10 +1,22 @@
 ' Use these functions to make requests
 
+' When messages are recieved they are split with this string
+' Each message is split by two concurrent strings
+' The message info is split by one
+Function getSeparator() As String
+    getSeparator = "¬&£@*^%"
+End Function
+
+' The base URL from which requests are made
+Function getBaseURL() As String
+    getBaseURL = "http://7seven77.000webhostapp.com"
+End Function
+
 Function sendMessageRequest() As String
     Dim url As String
     Dim sender, message As String
     
-    url = "http://7seven77.000webhostapp.com/send.php"
+    url = getBaseURL() + "/send.php"
     
 '   Obtain the cell values
     sender = getSender()
@@ -22,7 +34,7 @@ Function getMessagesRequest() As String
     Dim url As String
     Dim sender As String
     
-    url = "http://7seven77.000webhostapp.com/receive.php"
+    url = getBaseURL() + "/receive.php"
     
 '   Obtain the cell values
     sender = getSender()
@@ -33,6 +45,8 @@ Function getMessagesRequest() As String
     Debug.Print url
     
 '   Make the request to send a message
+    Debug.Print request(url)
+
     getMessagesRequest = request(url)
 End Function
 
