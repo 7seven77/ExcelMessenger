@@ -60,7 +60,7 @@ End Function
 Function isCellValid(cell As String) As Boolean
     Dim value As String
     value = getCell(cell)
-    isCellValid = Len(value) > 0 And InStr(value, ",") = 0
+    isCellValid = Len(value) > 0 And InStr(value, getSeparator()) = 0
 End Function
 
 Function isSenderValid() As Boolean
