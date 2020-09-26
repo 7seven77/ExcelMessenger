@@ -14,9 +14,11 @@
         $sql .= "ORDER BY `date` DESC;";
         $result = mysqli_query($connection, $sql);
         
+        $separator = "¬&£@*^%";
+        
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
-                echo($row['sender'] . ',' . $row['recipient'] . ',' . $row['message'] . ',' . $row['date'] . ',,');
+                echo($row['sender'] . $separator . $row['recipient'] . $separator . $row['message'] . $separator . $row['date'] . $separator . $separator);
             }
         }
         else {
@@ -24,3 +26,4 @@
         }
     }
 ?>
+
